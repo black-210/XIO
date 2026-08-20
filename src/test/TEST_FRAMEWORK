@@ -1,0 +1,50 @@
+XIO TEST FRAMEWORK
+VERSION 0.1
+
+TEST TYPES
+    lexer
+    parser
+    AST
+    semantic
+    type
+    ownership
+    lifetime
+    IR
+    optimizer
+    backend
+    assembler
+    object
+    linker
+    integration
+    bootstrap
+
+TEST
+    name
+    source
+    target
+    expected
+    diagnostics
+    exit_code
+
+ASSERTIONS
+    token
+    AST
+    type
+    IR
+    instruction
+    register
+    section
+    symbol
+    relocation
+    output
+    diagnostic
+
+TARGET MATRIX
+    x86_64
+    aarch64
+
+TEST RULE
+    deterministic output
+    deterministic diagnostics
+    no host architecture leakage
+    no target mismatch

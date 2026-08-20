@@ -1,0 +1,24 @@
+XIO FRONTEND CONTRACT
+
+SOURCE
+  -> TOKENS
+  -> AST
+  -> RESOLVED AST
+  -> VALIDATED AST
+
+The frontend owns:
+    syntax
+    names
+    types
+    ownership
+    lifetimes
+    semantic rules
+
+The frontend does not own:
+    machine registers
+    instruction encoding
+    ELF layout
+    final linking
+
+The frontend passes target-independent semantic information
+to the middleend and backend.

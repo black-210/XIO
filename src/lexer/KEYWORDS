@@ -1,0 +1,11 @@
+module import export public private internal fn extern inline const unsafe noreturn
+struct union enum type trait impl global
+let var if else match loop while for in break continue return defer
+true false
+asm instruction register clobber
+compile target arch optimize debug release freestanding kernel object elf
+error result option panic recover assert
+atomic mutex spinlock rwlock channel thread spawn join
+memory cpu interrupt device process scheduler filesystem network syscall
+capability permission page physical virtual map unmap protect
+alloc free move copy load store address deref offset align volatile packed

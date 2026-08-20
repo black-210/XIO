@@ -1,0 +1,11 @@
+lexer
+parser
+ast
+semantic
+types
+ir
+optimizer
+backend
+linker
+compiler
+self-hosting

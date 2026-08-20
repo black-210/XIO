@@ -1,0 +1,23 @@
+XIO BACKEND
+
+The backend is target-specific.
+
+Supported initial targets:
+    x86_64
+    aarch64
+
+Backend stages:
+    legalization
+    instruction selection
+    register allocation
+    stack frame
+    ABI lowering
+    scheduling
+    encoding
+    relocation
+    ELF emission
+
+The backend must consume IR, not source code.
+
+No C/C++/Rust/Python implementation is defined here.
+Bootstrap is temporary and will eventually be replaced by XIO.

@@ -1,0 +1,44 @@
+XIO LINKER FORMAT
+
+INPUT
+    XIO object files
+    XIO libraries
+    XIO metadata
+
+OUTPUT
+    ELF executable
+    ELF kernel image
+    ELF shared object
+    relocatable object
+
+REQUIRED
+    sections
+    symbols
+    relocations
+    alignment
+    entry point
+    architecture
+    ABI
+    permissions
+
+SECTIONS
+    .text
+    .rodata
+    .data
+    .bss
+    .init
+    .fini
+    .init_array
+    .fini_array
+    .symtab
+    .strtab
+    .shstrtab
+
+LINKER RULES
+    deterministic layout
+    architecture validation
+    symbol resolution
+    relocation validation
+    duplicate symbol detection
+    undefined symbol detection
+    entry validation

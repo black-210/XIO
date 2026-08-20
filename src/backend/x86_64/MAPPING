@@ -1,0 +1,37 @@
+XIO IR -> X86_64
+
+ADD       -> add
+SUB       -> sub
+MUL       -> imul
+SDIV      -> idiv
+UDIV      -> div
+AND       -> and
+OR        -> or
+XOR       -> xor
+SHL       -> shl
+LSHR      -> shr
+ASHR      -> sar
+
+LOAD      -> mov
+STORE     -> mov
+ADDRESS_OF -> lea
+
+BRANCH    -> jmp
+COND_BRANCH -> cmp + conditional jump
+CALL      -> call
+RETURN    -> ret
+
+SYSCALL   -> syscall
+TRAP      -> ud2
+HALT      -> hlt
+
+PTR_ADD   -> lea
+PTR_CAST  -> register move
+BITCAST   -> register move
+
+ICMP_EQ   -> cmp + sete
+ICMP_NE   -> cmp + setne
+ICMP_SLT  -> cmp + setl
+ICMP_SLE  -> cmp + setle
+ICMP_SGT  -> cmp + setg
+ICMP_SGE  -> cmp + setge

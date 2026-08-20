@@ -1,0 +1,28 @@
+XIO COMPILER STATUS
+
+FRONTEND
+    lexer: defined
+    parser: defined
+    AST: defined
+    semantic: defined
+
+MIDDLEEND
+    IR: defined
+    SSA: defined
+    optimizer: defined
+
+BACKEND
+    x86_64: defined
+    aarch64: defined
+
+OBJECT
+    ELF64: defined
+
+BOOTSTRAP
+    temporary only
+
+SELF HOSTING
+    required
+
+FOREIGN IMPLEMENTATION
+    temporary bootstrap boundary only

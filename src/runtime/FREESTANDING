@@ -1,0 +1,37 @@
+XIO FREESTANDING RUNTIME
+
+DEFAULT
+    no libc
+    no host runtime
+    no hidden allocator
+    no hidden threads
+    no hidden exceptions
+    no hidden startup
+
+KERNEL MODE
+    explicit entry
+    explicit stack
+    explicit memory
+    explicit interrupt table
+    explicit hardware access
+    explicit scheduler
+    explicit drivers
+
+USER MODE
+    explicit process startup
+    explicit syscall boundary
+    explicit memory model
+    explicit runtime selection
+
+RUNTIME COMPONENTS
+    startup
+    allocator
+    panic
+    synchronization
+    process
+    thread
+    syscall
+    filesystem
+    network
+
+ALL COMPONENTS OPTIONAL

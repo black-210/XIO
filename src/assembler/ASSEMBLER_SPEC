@@ -1,0 +1,74 @@
+XIO ASSEMBLER INTERFACE
+VERSION 0.1
+
+INPUT
+    target assembly
+    target architecture
+    target ABI
+
+OUTPUT
+    XIO object
+
+STAGES
+    source
+    lexical_scan
+    mnemonic_resolution
+    operand_parse
+    instruction_validation
+    encoding
+    relocation_generation
+    section_emission
+    symbol_emission
+    object_generation
+
+DIRECTIVES
+    .text
+    .rodata
+    .data
+    .bss
+    .section
+    .global
+    .local
+    .weak
+    .type
+    .size
+    .align
+    .balign
+    .byte
+    .word
+    .long
+    .quad
+    .zero
+    .string
+    .ascii
+    .globl
+    .extern
+
+LABEL
+    identifier :
+
+OPERANDS
+    register
+    immediate
+    memory
+    label
+    symbol
+    displacement
+    indexed
+    scaled
+
+VALIDATION
+    mnemonic exists
+    operand count valid
+    operand types valid
+    register valid
+    immediate range valid
+    addressing mode valid
+    target feature enabled
+
+ASSEMBLER MUST
+    never silently change instructions
+    never silently truncate values
+    preserve relocation information
+    reject invalid architecture
+    emit deterministic objects

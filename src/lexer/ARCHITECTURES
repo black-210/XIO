@@ -1,0 +1,5 @@
+x86_64
+aarch64
+arm
+riscv64
+wasm32

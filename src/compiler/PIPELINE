@@ -1,0 +1,69 @@
+XIO COMPILER PIPELINE
+
+SOURCE
+  |
+  v
+LEXER
+  |
+  v
+TOKENS
+  |
+  v
+PARSER
+  |
+  v
+AST
+  |
+  v
+NAME RESOLUTION
+  |
+  v
+TYPE CHECK
+  |
+  v
+OWNERSHIP CHECK
+  |
+  v
+LIFETIME CHECK
+  |
+  v
+CONTROL FLOW
+  |
+  v
+CONSTANT EVALUATION
+  |
+  v
+LAYOUT
+  |
+  v
+VALIDATED AST
+  |
+  v
+LOWERING
+  |
+  v
+TYPED IR
+  |
+  v
+CFG
+  |
+  v
+SSA
+  |
+  v
+OPTIMIZER
+  |
+  v
+TARGET LOWERING
+  |
+  v
+MACHINE IR
+  |
+  v
+ASSEMBLY / OBJECT
+  |
+  v
+LINKER
+  |
+  v
+ELF / EXECUTABLE / KERNEL IMAGE

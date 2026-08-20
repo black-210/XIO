@@ -1,0 +1,90 @@
+XIO OBJECT FORMAT
+VERSION 0.1
+
+OBJECT
+    header
+    sections
+    symbols
+    relocations
+    metadata
+
+HEADER
+    magic
+    version
+    target
+    architecture
+    abi
+    endian
+    word_size
+    flags
+
+SECTION
+    name
+    type
+    flags
+    alignment
+    size
+    offset
+    data
+
+SECTION_TYPES
+    text
+    rodata
+    data
+    bss
+    debug
+    metadata
+    note
+
+SECTION_FLAGS
+    alloc
+    executable
+    writable
+    readable
+    merge
+    strings
+
+SYMBOL
+    name
+    binding
+    visibility
+    type
+    section
+    value
+    size
+
+SYMBOL_BINDING
+    local
+    global
+    weak
+
+SYMBOL_TYPE
+    function
+    object
+    section
+    file
+    tls
+    absolute
+
+RELOCATION
+    offset
+    symbol
+    type
+    addend
+    width
+
+RELOCATION_TYPES
+    absolute
+    pc_relative
+    got
+    plt
+    section
+    architecture_specific
+
+OBJECT_VALIDATION
+    architecture_match
+    abi_match
+    section_alignment
+    symbol_resolution
+    relocation_validity
+    section_bounds

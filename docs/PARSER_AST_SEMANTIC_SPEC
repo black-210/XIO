@@ -1,0 +1,888 @@
+XIO PARSER / AST / SEMANTIC ENGINE
+VERSION 0.1
+
+============================================================
+PARSER
+============================================================
+
+PARSER INPUT
+    token_stream
+    source_locations
+
+PARSER OUTPUT
+    AST
+    diagnostics
+
+PARSER MODES
+    module
+    declaration
+    type
+    expression
+    statement
+    pattern
+    attribute
+    generic
+    const_expression
+    compile_time
+
+DECLARATIONS
+    module_declaration
+    import_declaration
+    export_declaration
+    function_declaration
+    extern_declaration
+    global_declaration
+    struct_declaration
+    union_declaration
+    enum_declaration
+    type_alias_declaration
+    trait_declaration
+    implementation_declaration
+    constant_declaration
+
+FUNCTION
+    function
+        name
+        visibility
+        modifiers
+        generic_parameters
+        parameters
+        return_type
+        where_constraints
+        body
+
+PARAMETER
+    name
+    type
+    attributes
+    ownership
+    mutability
+
+STRUCT
+    name
+    visibility
+    generic_parameters
+    fields
+    attributes
+    layout
+
+FIELD
+    name
+    type
+    visibility
+    alignment
+    offset
+    attributes
+
+UNION
+    name
+    variants
+    layout
+    alignment
+    size
+
+ENUM
+    name
+    underlying_type
+    variants
+    discriminant
+    attributes
+
+ENUM_VARIANT
+    name
+    value
+    fields
+    tuple_fields
+    discriminant
+
+TRAIT
+    name
+    generic_parameters
+    associated_types
+    methods
+    constants
+    constraints
+
+IMPL
+    target_type
+    trait
+    generic_parameters
+    methods
+    constants
+    associated_types
+
+MODULE
+    name
+    imports
+    exports
+    declarations
+
+IMPORT
+    path
+    aliases
+    visibility
+
+============================================================
+TYPE AST
+============================================================
+
+TYPE_PRIMITIVE
+    u8
+    u16
+    u32
+    u64
+    u128
+    i8
+    i16
+    i32
+    i64
+    i128
+    usize
+    isize
+    f32
+    f64
+    bool
+    char
+    void
+
+TYPE_POINTER
+    pointee
+    mutable
+    address_space
+    alignment
+
+TYPE_REFERENCE
+    referenced
+    mutable
+    lifetime
+
+TYPE_ARRAY
+    element
+    length
+
+TYPE_SLICE
+    element
+
+TYPE_TUPLE
+    elements
+
+TYPE_FUNCTION
+    parameters
+    return_type
+    calling_convention
+    variadic
+
+TYPE_STRUCT
+    declaration
+
+TYPE_UNION
+    declaration
+
+TYPE_ENUM
+    declaration
+
+TYPE_GENERIC
+    base
+    arguments
+
+TYPE_ALIAS
+    declaration
+
+TYPE_OPAQUE
+    name
+
+TYPE_NEVER
+    never
+
+TYPE_INFER
+    unresolved
+
+============================================================
+EXPRESSION AST
+============================================================
+
+EXPR_INTEGER
+    value
+    type
+    source_location
+
+EXPR_FLOAT
+    value
+    type
+    source_location
+
+EXPR_STRING
+    value
+
+EXPR_CHARACTER
+    value
+
+EXPR_BOOLEAN
+    value
+
+EXPR_IDENTIFIER
+    name
+
+EXPR_PATH
+    components
+
+EXPR_UNARY
+    operator
+    operand
+
+EXPR_BINARY
+    operator
+    left
+    right
+
+EXPR_ASSIGN
+    target
+    value
+    operator
+
+EXPR_CALL
+    callee
+    arguments
+    generic_arguments
+
+EXPR_INDEX
+    target
+    index
+
+EXPR_MEMBER
+    target
+    member
+
+EXPR_POINTER
+    operand
+
+EXPR_DEREFERENCE
+    operand
+
+EXPR_CAST
+    operand
+    target_type
+
+EXPR_SIZEOF
+    type
+
+EXPR_ALIGNOF
+    type
+
+EXPR_OFFSETOF
+    type
+    field
+
+EXPR_STRUCT
+    type
+    fields
+
+EXPR_ARRAY
+    elements
+
+EXPR_TUPLE
+    elements
+
+EXPR_BLOCK
+    statements
+    result
+
+EXPR_IF
+    condition
+    then_block
+    else_block
+
+EXPR_MATCH
+    value
+    arms
+
+EXPR_LOOP
+    body
+
+EXPR_COMPTIME
+    expression
+
+EXPR_ASM
+    template
+    inputs
+    outputs
+    clobbers
+
+============================================================
+STATEMENT AST
+============================================================
+
+STMT_LET
+    name
+    type
+    initializer
+    mutable
+
+STMT_VAR
+    name
+    type
+    initializer
+    mutable
+
+STMT_EXPRESSION
+    expression
+
+STMT_RETURN
+    expression
+
+STMT_BREAK
+    label
+
+STMT_CONTINUE
+    label
+
+STMT_DEFER
+    body
+
+STMT_IF
+    condition
+    then_body
+    else_body
+
+STMT_WHILE
+    condition
+    body
+
+STMT_LOOP
+    body
+
+STMT_FOR
+    variable
+    iterator
+    body
+
+STMT_MATCH
+    value
+    arms
+
+STMT_BLOCK
+    statements
+
+============================================================
+PATTERN AST
+============================================================
+
+PATTERN_IDENTIFIER
+PATTERN_WILDCARD
+PATTERN_LITERAL
+PATTERN_TUPLE
+PATTERN_STRUCT
+PATTERN_ENUM
+PATTERN_RANGE
+PATTERN_OR
+PATTERN_REFERENCE
+
+============================================================
+GENERIC AST
+============================================================
+
+GENERIC_PARAMETER
+    name
+    kind
+    constraints
+    default
+
+GENERIC_TYPE
+GENERIC_CONSTANT
+GENERIC_LIFETIME
+
+WHERE_CONSTRAINT
+    subject
+    requirement
+
+============================================================
+ATTRIBUTE AST
+============================================================
+
+ATTRIBUTE
+    name
+    arguments
+
+BUILTIN_ATTRIBUTES
+    inline
+    noinline
+    cold
+    hot
+    noreturn
+    packed
+    aligned
+    volatile
+    atomic
+    interrupt
+    syscall
+    driver
+    kernel
+    section
+    export
+    import
+    naked
+    preserve
+    abi
+    calling_convention
+    target
+    optimize
+    deprecated
+    test
+    compile_time
+
+============================================================
+AST ROOT
+============================================================
+
+PROGRAM
+    source_file
+    modules
+    imports
+    declarations
+    diagnostics
+
+AST_NODE
+    node_id
+    kind
+    source_location
+    children
+    attributes
+
+NODE_ID
+    monotonically increasing
+    unique per compilation
+
+============================================================
+PARSER ERROR RECOVERY
+============================================================
+
+recover_at_semicolon
+recover_at_brace
+recover_at_parenthesis
+recover_at_bracket
+recover_at_declaration
+recover_at_keyword
+recover_at_eof
+
+ERROR
+    unexpected_token
+    missing_token
+    malformed_expression
+    malformed_type
+    malformed_declaration
+    invalid_generic
+    invalid_attribute
+
+PARSER MUST
+    preserve source positions
+    continue after recoverable errors
+    never silently discard syntax
+    produce deterministic AST
+    distinguish syntax errors from semantic errors
+
+============================================================
+SYMBOL SYSTEM
+============================================================
+
+SYMBOL
+    id
+    name
+    kind
+    type
+    visibility
+    declaration
+    scope
+    module
+    attributes
+
+SYMBOL_KINDS
+    module
+    function
+    parameter
+    local
+    global
+    type
+    struct
+    union
+    enum
+    trait
+    constant
+    field
+    variant
+    generic
+
+SCOPE
+    global
+    module
+    function
+    block
+    loop
+    match
+    generic
+
+SCOPE_OPERATIONS
+    push_scope
+    pop_scope
+    define
+    lookup
+    lookup_local
+    lookup_parent
+    lookup_global
+    shadow_check
+
+============================================================
+SEMANTIC ANALYSIS
+============================================================
+
+SEMANTIC_PIPELINE
+
+    AST
+    ↓
+    declaration_collection
+    ↓
+    symbol_resolution
+    ↓
+    type_resolution
+    ↓
+    generic_resolution
+    ↓
+    trait_resolution
+    ↓
+    type_checking
+    ↓
+    ownership_analysis
+    ↓
+    lifetime_analysis
+    ↓
+    mutability_analysis
+    ↓
+    constant_evaluation
+    ↓
+    control_flow_analysis
+    ↓
+    safety_analysis
+    ↓
+    layout_calculation
+    ↓
+    validated_AST
+
+============================================================
+TYPE CHECKING
+============================================================
+
+CHECK_INTEGER
+CHECK_FLOAT
+CHECK_BOOLEAN
+CHECK_CHARACTER
+CHECK_STRING
+CHECK_UNARY
+CHECK_BINARY
+CHECK_ASSIGNMENT
+CHECK_CALL
+CHECK_INDEX
+CHECK_MEMBER
+CHECK_CAST
+CHECK_RETURN
+CHECK_IF
+CHECK_MATCH
+CHECK_LOOP
+CHECK_BLOCK
+CHECK_STRUCT
+CHECK_ARRAY
+CHECK_TUPLE
+
+TYPE_RULES
+    exact_match
+    implicit_numeric_promotion
+    explicit_numeric_conversion
+    pointer_compatibility
+    reference_compatibility
+    mutability_compatibility
+    function_compatibility
+    array_compatibility
+    tuple_compatibility
+    generic_substitution
+
+NO_IMPLICIT
+    pointer_conversion
+    integer_to_pointer
+    pointer_to_integer
+    mutable_reference_creation
+    ownership_transfer
+    lifetime_extension
+
+============================================================
+OWNERSHIP
+============================================================
+
+OWNERSHIP_STATES
+    owned
+    moved
+    borrowed
+    mutably_borrowed
+    shared
+    released
+    uninitialized
+
+OWNERSHIP_OPERATIONS
+    create
+    move
+    copy
+    borrow
+    mutable_borrow
+    release
+    destroy
+
+OWNERSHIP_RULES
+    moved_value_cannot_be_used
+    mutable_borrow_excludes_other_borrows
+    shared_borrow_excludes_mutation
+    owner_controls_release
+    explicit_copy_required_when_noncopy
+    no_hidden_clone
+    no_hidden_allocation
+
+============================================================
+LIFETIMES
+============================================================
+
+LIFETIME
+    id
+    parent
+    start
+    end
+
+LIFETIME_RULES
+    reference_must_not_outlive_target
+    return_reference_requires_valid_lifetime
+    local_reference_cannot_escape_scope
+    explicit_lifetime_for_complex_cases
+
+============================================================
+MUTABILITY
+============================================================
+
+MUTABLE
+IMMUTABLE
+CONST
+READONLY
+VOLATILE
+ATOMIC
+
+MUTABILITY_RULES
+    immutable_cannot_be_written
+    readonly_cannot_be_modified
+    volatile_access_is_preserved
+    atomic_access_uses_atomic_semantics
+
+============================================================
+CONTROL FLOW
+============================================================
+
+BASIC_BLOCK
+    id
+    statements
+    terminator
+    predecessors
+    successors
+
+TERMINATORS
+    branch
+    conditional_branch
+    return
+    unreachable
+    switch
+    invoke
+
+CONTROL_ANALYSIS
+    reachability
+    definite_assignment
+    return_completeness
+    break_validity
+    continue_validity
+    loop_exit_analysis
+    unreachable_code
+
+============================================================
+CONSTANT EVALUATION
+============================================================
+
+CONST_ADD
+CONST_SUB
+CONST_MUL
+CONST_DIV
+CONST_MOD
+CONST_SHIFT
+CONST_COMPARE
+CONST_BOOLEAN
+CONST_CAST
+CONST_SIZEOF
+CONST_ALIGNOF
+CONST_OFFSETOF
+CONST_ARRAY
+CONST_TUPLE
+CONST_STRUCT
+
+CONST_RULES
+    deterministic
+    side_effect_free
+    bounded
+    no_runtime_io
+    no_uncontrolled_allocation
+
+============================================================
+MEMORY SAFETY
+============================================================
+
+CHECK_NULLABILITY
+CHECK_ALIGNMENT
+CHECK_BOUNDS
+CHECK_INITIALIZATION
+CHECK_USE_AFTER_MOVE
+CHECK_DOUBLE_FREE
+CHECK_INVALID_DEREFERENCE
+CHECK_INVALID_CAST
+CHECK_INTEGER_OVERFLOW
+CHECK_SHIFT_RANGE
+
+UNSAFE_ESCAPE
+    pointer arithmetic
+    raw address access
+    inline assembly
+    volatile hardware access
+    architecture-specific instruction
+    manual allocation
+    manual deallocation
+
+UNSAFE RULE
+    unsafe operation requires explicit unsafe context
+
+============================================================
+LAYOUT
+============================================================
+
+LAYOUT_STRUCT
+    field_order
+    field_offset
+    field_size
+    field_alignment
+    padding
+    total_size
+    total_alignment
+
+LAYOUT_UNION
+    maximum_field_size
+    maximum_alignment
+
+LAYOUT_ENUM
+    discriminant_size
+    payload_layout
+
+LAYOUT_ARRAY
+    element_size
+    element_alignment
+    total_size
+
+LAYOUT_RULES
+    deterministic
+    target_dependent
+    ABI_compatible
+    explicit_packing_supported
+    explicit_alignment_supported
+
+============================================================
+DIAGNOSTICS
+============================================================
+
+DIAGNOSTIC
+    severity
+    code
+    message
+    source_location
+    notes
+    suggestions
+
+SEVERITY
+    note
+    warning
+    error
+    fatal
+
+DIAGNOSTIC_CODES
+    E0001_UNKNOWN_SYMBOL
+    E0002_DUPLICATE_SYMBOL
+    E0003_TYPE_MISMATCH
+    E0004_INVALID_ASSIGNMENT
+    E0005_INVALID_RETURN
+    E0006_INVALID_CALL
+    E0007_INVALID_MEMBER
+    E0008_INVALID_INDEX
+    E0009_INVALID_CAST
+    E0010_USE_AFTER_MOVE
+    E0011_INVALID_BORROW
+    E0012_LIFETIME_ERROR
+    E0013_UNINITIALIZED
+    E0014_DOUBLE_RELEASE
+    E0015_INVALID_CONTROL_FLOW
+    E0016_INVALID_GENERIC
+    E0017_TRAIT_NOT_IMPLEMENTED
+    E0018_AMBIGUOUS_OVERLOAD
+    E0019_CONST_EVALUATION_FAILED
+    E0020_INVALID_LAYOUT
+    E0021_UNSAFE_OPERATION
+    E0022_INVALID_INTERRUPT
+    E0023_INVALID_SYSCALL
+    E0024_INVALID_REGISTER
+    E0025_INVALID_TARGET
+    E0026_INVALID_ABI
+
+============================================================
+VALIDATION
+============================================================
+
+VALIDATED_PROGRAM
+    resolved_symbols
+    resolved_types
+    checked_expressions
+    ownership_graph
+    lifetime_graph
+    control_flow_graph
+    constant_values
+    layouts
+    diagnostics
+
+SEMANTIC_INVARIANTS
+    every_identifier_resolved_or_diagnostic
+    every_expression_typed
+    every_assignment_checked
+    every_return_checked
+    every_reference_validated
+    every_move_tracked
+    every_scope_balanced
+    every_type_layout_deterministic
+    every_unsafe_operation_explicit
+    every_backend_input_validated
+
+============================================================
+COMPILER CONTRACT
+============================================================
+
+PARSER MUST NOT
+    generate machine code
+    optimize IR
+    perform linking
+
+SEMANTIC ENGINE MUST NOT
+    generate machine code
+    perform linking
+
+SEMANTIC ENGINE OUTPUT
+    validated AST
+    symbol table
+    type table
+    ownership graph
+    lifetime graph
+    control flow graph
+    layout table
+    constant table
+    diagnostics

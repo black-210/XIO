@@ -1,0 +1,41 @@
+XIO COMPILER DRIVER
+
+INPUT
+    *.xio
+
+OPTIONS
+    --target x86_64
+    --target aarch64
+    --emit tokens
+    --emit ast
+    --emit ir
+    --emit asm
+    --emit obj
+    --emit elf
+    --freestanding
+    --kernel
+    --no-link
+
+PIPELINE
+    load
+    lex
+    parse
+    resolve
+    semantic
+    lower
+    optimize
+    codegen
+    assemble
+    object
+    link
+
+VALIDATION
+    source valid
+    target valid
+    IR valid
+    machine code valid
+    object valid
+    ELF valid
+
+ERROR
+    never execute invalid output

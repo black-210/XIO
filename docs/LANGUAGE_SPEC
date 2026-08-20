@@ -1,0 +1,226 @@
+# XIO LANGUAGE SPECIFICATION
+
+language XIO
+version 0.1
+
+[DESIGN]
+
+systems
+low_level
+freestanding
+deterministic
+explicit_memory
+explicit_types
+zero_hidden_runtime
+zero_implicit_allocation
+manual_lifetime
+compile_time_execution
+metaprogramming
+modules
+generics
+traits
+contracts
+consteval
+unsafe
+atomic
+volatile
+inline
+packed
+aligned
+
+[PRIMITIVE_TYPES]
+
+u8
+u16
+u32
+u64
+u128
+i8
+i16
+i32
+i64
+i128
+usize
+isize
+f32
+f64
+bool
+char
+void
+
+[COMPOSITE_TYPES]
+
+array
+slice
+pointer
+reference
+struct
+union
+enum
+tuple
+function
+opaque
+
+[MEMORY]
+
+alloc
+free
+move
+copy
+load
+store
+address
+deref
+offset
+align
+page
+physical
+virtual
+map
+unmap
+protect
+
+[CONTROL]
+
+if
+else
+match
+loop
+while
+for
+break
+continue
+return
+defer
+
+[FUNCTIONS]
+
+fn
+extern
+inline
+const
+unsafe
+noreturn
+
+[MODULES]
+
+module
+import
+export
+public
+private
+internal
+
+[STRUCTURES]
+
+struct
+union
+enum
+type
+alias
+trait
+impl
+
+[COMPILER]
+
+compile
+target
+arch
+optimize
+debug
+release
+freestanding
+kernel
+module
+object
+elf
+
+[KERNEL]
+
+kernel
+memory
+cpu
+interrupt
+device
+process
+thread
+scheduler
+filesystem
+network
+syscall
+module
+
+[ERRORS]
+
+error
+result
+option
+panic
+recover
+assert
+
+[CONCURRENCY]
+
+atomic
+mutex
+spinlock
+rwlock
+channel
+thread
+spawn
+join
+
+[ASSEMBLY]
+
+asm
+instruction
+register
+clobber
+
+[SYNTAX]
+
+source      := declaration*
+declaration := function
+             | struct
+             | union
+             | enum
+             | type
+             | module
+             | import
+             | global
+
+function    := "fn" identifier "(" parameters? ")" return_type? block
+
+block       := "{" statement* "}"
+
+statement   := declaration
+             | expression
+             | if
+             | loop
+             | while
+             | for
+             | return
+             | break
+             | continue
+             | defer
+
+expression  := literal
+             | identifier
+             | unary
+             | binary
+             | call
+             | index
+             | member
+
+[MEMORY_RULE]
+
+Every allocation has an explicit owner.
+Every pointer has an explicit type.
+Every unsafe operation must be explicitly marked.
+No hidden garbage collector.
+No hidden runtime allocation.
+
+[COMPILER_RULE]
+
+XIO must eventually compile itself.
+

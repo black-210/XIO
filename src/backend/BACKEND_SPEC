@@ -1,0 +1,135 @@
+XIO BACKEND ARCHITECTURE
+VERSION 0.1
+
+BACKEND INPUT
+    validated IR
+    target triple
+    ABI
+    optimization level
+    debug configuration
+
+BACKEND OUTPUT
+    assembly
+    relocatable object
+    executable input
+    kernel image input
+
+PIPELINE
+    IR
+    -> target legalization
+    -> instruction selection
+    -> addressing legalization
+    -> register allocation
+    -> stack layout
+    -> prologue/epilogue
+    -> instruction scheduling
+    -> peephole optimization
+    -> encoding
+    -> relocation generation
+    -> object emission
+
+COMMON OPERATIONS
+    integer arithmetic
+    floating arithmetic
+    comparison
+    branches
+    calls
+    returns
+    load
+    store
+    copy
+    memory operations
+    atomic operations
+    syscall
+    inline assembly
+    trap
+    halt
+
+REGISTER ALLOCATION
+    liveness
+    interference
+    allocation
+    spilling
+    reload
+    coalescing
+    caller_saved
+    callee_saved
+    reserved_registers
+
+STACK
+    frame_size
+    frame_alignment
+    local_storage
+    spill_storage
+    outgoing_arguments
+    return_address
+    saved_registers
+
+CALLING CONVENTION
+    argument_registers
+    return_registers
+    stack_arguments
+    stack_alignment
+    caller_saved
+    callee_saved
+    variadic_rules
+    aggregate_return
+    aggregate_argument
+
+OBJECT MODEL
+    ELF64
+    sections
+    symbols
+    relocations
+    string_tables
+    symbol_tables
+    section_tables
+    alignment
+
+SECTIONS
+    .text
+    .rodata
+    .data
+    .bss
+    .init
+    .fini
+    .debug_info
+    .debug_line
+    .debug_str
+
+SYMBOLS
+    local
+    global
+    weak
+    undefined
+    absolute
+    section_relative
+
+RELOCATIONS
+    absolute
+    pc_relative
+    got_relative
+    plt_relative
+    section_relative
+    architecture_specific
+
+KERNEL MODE
+    freestanding
+    no_host_runtime
+    no_host_libc
+    explicit_entry
+    explicit_stack
+    explicit_memory
+    explicit_interrupts
+    explicit_abi
+
+DIAGNOSTICS
+    unsupported_instruction
+    unsupported_type
+    register_exhaustion
+    invalid_alignment
+    invalid_calling_convention
+    invalid_relocation
+    invalid_section
+    invalid_symbol
+    invalid_target

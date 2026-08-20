@@ -1,0 +1,92 @@
+XIO FRONTEND
+VERSION 0.1
+
+PIPELINE
+    source
+    lexer
+    tokens
+    parser
+    AST
+    name_resolution
+    type_resolution
+    semantic_analysis
+    validated_AST
+
+SOURCE
+    UTF8
+    deterministic
+    explicit_encoding
+
+LEXER
+    identifiers
+    keywords
+    literals
+    operators
+    punctuation
+    comments
+    whitespace
+    indentation
+    source_locations
+
+TOKEN
+    kind
+    lexeme
+    value
+    line
+    column
+    offset
+    length
+
+PARSER
+    declarations
+    types
+    expressions
+    statements
+    patterns
+    attributes
+    generics
+
+AST
+    program
+    module
+    declarations
+    types
+    expressions
+    statements
+    patterns
+
+NAME_RESOLUTION
+    modules
+    imports
+    scopes
+    symbols
+    aliases
+    generics
+
+TYPE_RESOLUTION
+    primitive
+    named
+    generic
+    pointer
+    reference
+    array
+    slice
+    tuple
+    function
+    aggregate
+
+SEMANTIC
+    type_check
+    ownership
+    lifetime
+    mutability
+    constants
+    control_flow
+    safety
+    layout
+
+FRONTEND OUTPUT
+    validated_AST
+    symbol_table
+    type_table
+    diagnostics

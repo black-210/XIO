@@ -1,0 +1,22 @@
+XIO LEXER
+
+Input:
+    XIO source text
+
+Output:
+    deterministic token stream
+
+Responsibilities:
+    lexical classification
+    keyword recognition
+    literal parsing
+    operator recognition
+    comment handling
+    source locations
+    lexical diagnostics
+
+The lexer must not perform:
+    parsing
+    type checking
+    optimization
+    code generation

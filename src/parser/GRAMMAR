@@ -1,0 +1,90 @@
+PARSER ENTRY
+    parse_program
+
+DECLARATION PARSERS
+    parse_module
+    parse_import
+    parse_export
+    parse_function
+    parse_extern
+    parse_global
+    parse_struct
+    parse_union
+    parse_enum
+    parse_type
+    parse_trait
+    parse_impl
+    parse_constant
+
+TYPE PARSERS
+    parse_type
+    parse_pointer_type
+    parse_reference_type
+    parse_array_type
+    parse_slice_type
+    parse_tuple_type
+    parse_function_type
+    parse_generic_type
+
+EXPRESSION PARSERS
+    parse_expression
+    parse_assignment
+    parse_logical_or
+    parse_logical_and
+    parse_bit_or
+    parse_bit_xor
+    parse_bit_and
+    parse_equality
+    parse_comparison
+    parse_shift
+    parse_additive
+    parse_multiplicative
+    parse_unary
+    parse_postfix
+    parse_primary
+    parse_call
+    parse_index
+    parse_member
+    parse_cast
+    parse_asm
+
+STATEMENT PARSERS
+    parse_block
+    parse_let
+    parse_var
+    parse_if
+    parse_match
+    parse_loop
+    parse_while
+    parse_for
+    parse_return
+    parse_break
+    parse_continue
+    parse_defer
+    parse_expression_statement
+
+PATTERN PARSERS
+    parse_pattern
+    parse_identifier_pattern
+    parse_literal_pattern
+    parse_tuple_pattern
+    parse_struct_pattern
+    parse_enum_pattern
+    parse_range_pattern
+    parse_or_pattern
+
+GENERIC PARSERS
+    parse_generic_parameters
+    parse_generic_arguments
+    parse_where_clause
+    parse_constraint
+
+ATTRIBUTE PARSERS
+    parse_attribute
+    parse_attribute_arguments
+
+RECOVERY
+    synchronize_statement
+    synchronize_declaration
+    synchronize_type
+    synchronize_expression

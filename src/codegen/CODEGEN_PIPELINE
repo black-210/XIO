@@ -1,0 +1,65 @@
+XIO CODE GENERATION
+
+INPUT
+    optimized IR
+    target
+    ABI
+
+STAGE 01
+    target legalization
+
+STAGE 02
+    instruction selection
+
+STAGE 03
+    addressing legalization
+
+STAGE 04
+    register class assignment
+
+STAGE 05
+    liveness analysis
+
+STAGE 06
+    interference graph
+
+STAGE 07
+    register allocation
+
+STAGE 08
+    spill insertion
+
+STAGE 09
+    stack frame construction
+
+STAGE 10
+    calling convention lowering
+
+STAGE 11
+    prologue generation
+
+STAGE 12
+    epilogue generation
+
+STAGE 13
+    instruction scheduling
+
+STAGE 14
+    peephole optimization
+
+STAGE 15
+    machine validation
+
+STAGE 16
+    assembly emission
+
+STAGE 17
+    object emission
+
+INVARIANTS
+    valid registers
+    valid operands
+    valid ABI
+    valid stack alignment
+    valid control flow
+    valid relocations

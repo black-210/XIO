@@ -1,0 +1,42 @@
+XIO ABI LAYER
+VERSION 0.1
+
+ABI DESCRIPTION
+    calling convention
+    register convention
+    stack convention
+    return convention
+    aggregate convention
+    alignment
+    variadic convention
+    exception convention
+    syscall convention
+    interrupt convention
+
+FUNCTION ABI
+    parameters
+    return
+    stack
+    preserved_registers
+    clobbered_registers
+
+KERNEL ABI
+    entry
+    stack
+    cpu_state
+    interrupt_state
+    syscall_state
+
+SYSCALL ABI
+    number
+    arguments
+    return
+    error
+
+ABI VALIDATION
+    parameter types
+    register assignment
+    stack offsets
+    alignment
+    return value
+    preserved state

@@ -1,0 +1,70 @@
+XIO COMPILER DRIVER
+VERSION 0.1
+
+COMMAND
+    xio
+
+INPUT
+    source files
+    modules
+    target
+    output
+    optimization
+    debug
+    freestanding
+    kernel
+    emit
+
+TARGET
+    x86_64
+    aarch64
+
+EMIT
+    tokens
+    ast
+    semantic
+    ir
+    optimized_ir
+    assembly
+    object
+    elf
+
+OPTIONS
+    --target
+    --output
+    --emit
+    --opt
+    --debug
+    --release
+    --freestanding
+    --kernel
+    --module
+    --library
+    --entry
+    --no-link
+    --verbose
+
+PIPELINE
+    parse_options
+    discover_modules
+    load_sources
+    lex
+    parse
+    resolve
+    semantic
+    lower
+    optimize
+    codegen
+    assemble
+    link
+    emit
+
+EXIT_CODES
+    0 success
+    1 compilation_error
+    2 argument_error
+    3 input_error
+    4 target_error
+    5 backend_error
+    6 linker_error
+    7 internal_error

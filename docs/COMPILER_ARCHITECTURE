@@ -1,0 +1,38 @@
+XIO COMPILER ARCHITECTURE
+
+FRONTEND
+    lexer
+    parser
+    AST
+    semantic
+    type system
+
+MIDDLEEND
+    lowering
+    IR
+    CFG
+    SSA
+    optimizer
+
+BACKEND
+    target lowering
+    instruction selection
+    register allocation
+    stack frame
+    ABI
+    assembly/object
+
+LINK
+    object
+    symbols
+    relocations
+    ELF
+
+BOOTSTRAP
+    temporary host implementation
+
+SELF HOSTING
+    XIO compiler compiled by XIO compiler
+
+FINAL INDEPENDENCE
+    remove bootstrap dependency

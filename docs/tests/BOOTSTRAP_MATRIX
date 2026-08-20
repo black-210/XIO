@@ -1,0 +1,31 @@
+XIO BOOTSTRAP TEST MATRIX
+
+HOST
+    aarch64
+    x86_64
+
+TARGET
+    aarch64
+    x86_64
+
+COMBINATIONS
+    aarch64 -> aarch64
+    aarch64 -> x86_64
+    x86_64 -> x86_64
+    x86_64 -> aarch64
+
+REQUIRED
+    lexer succeeds
+    parser succeeds
+    semantic succeeds
+    IR succeeds
+    backend target matches
+    object architecture matches
+    linker architecture matches
+    produced executable architecture matches
+
+FAILURE
+    stop before execution
+    report exact target
+    report exact host
+    report exact object architecture

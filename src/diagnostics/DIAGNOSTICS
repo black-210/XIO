@@ -1,0 +1,86 @@
+XIO DIAGNOSTICS
+VERSION 0.1
+
+DIAGNOSTIC
+    code
+    severity
+    message
+    primary_location
+    secondary_locations
+    notes
+    suggestions
+
+SEVERITY
+    note
+    warning
+    error
+    fatal
+
+LEXER
+    X100 invalid_character
+    X101 invalid_number
+    X102 invalid_escape
+    X103 unterminated_string
+    X104 invalid_identifier
+
+PARSER
+    X200 unexpected_token
+    X201 expected_token
+    X202 invalid_expression
+    X203 invalid_statement
+    X204 invalid_type
+    X205 invalid_declaration
+    X206 invalid_attribute
+    X207 invalid_generic
+
+NAME
+    X300 unknown_name
+    X301 duplicate_name
+    X302 ambiguous_name
+    X303 invalid_import
+    X304 invalid_export
+
+TYPE
+    X400 type_mismatch
+    X401 invalid_conversion
+    X402 invalid_operator
+    X403 invalid_call
+    X404 invalid_return
+    X405 invalid_member
+    X406 invalid_index
+
+MEMORY
+    X500 use_after_move
+    X501 invalid_borrow
+    X502 lifetime_violation
+    X503 uninitialized_value
+    X504 invalid_dereference
+    X505 double_release
+    X506 invalid_mutation
+
+CONTROL
+    X600 unreachable_code
+    X601 missing_return
+    X602 invalid_break
+    X603 invalid_continue
+    X604 invalid_loop
+
+TARGET
+    X700 unsupported_target
+    X701 unsupported_feature
+    X702 invalid_abi
+    X703 invalid_alignment
+
+BACKEND
+    X800 unsupported_instruction
+    X801 register_error
+    X802 encoding_error
+    X803 relocation_error
+    X804 object_error
+    X805 linker_error
+
+DIAGNOSTIC RULES
+    stable_codes
+    deterministic_order
+    source_locations_required
+    no_silent_errors

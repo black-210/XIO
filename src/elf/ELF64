@@ -1,0 +1,86 @@
+XIO ELF64 EMITTER
+VERSION 0.1
+
+ELF_HEADER
+    e_ident
+    e_type
+    e_machine
+    e_version
+    e_entry
+    e_phoff
+    e_shoff
+    e_flags
+    e_ehsize
+    e_phentsize
+    e_phnum
+    e_shentsize
+    e_shnum
+    e_shstrndx
+
+PROGRAM_HEADER
+    p_type
+    p_flags
+    p_offset
+    p_vaddr
+    p_paddr
+    p_filesz
+    p_memsz
+    p_align
+
+PROGRAM_TYPES
+    PT_NULL
+    PT_LOAD
+    PT_DYNAMIC
+    PT_INTERP
+    PT_NOTE
+    PT_PHDR
+    PT_TLS
+
+PROGRAM_FLAGS
+    PF_X
+    PF_W
+    PF_R
+
+SECTION_HEADER
+    sh_name
+    sh_type
+    sh_flags
+    sh_addr
+    sh_offset
+    sh_size
+    sh_link
+    sh_info
+    sh_addralign
+    sh_entsize
+
+SECTION_TYPES
+    SHT_NULL
+    SHT_PROGBITS
+    SHT_SYMTAB
+    SHT_STRTAB
+    SHT_RELA
+    SHT_NOBITS
+    SHT_NOTE
+
+ELF_OUTPUTS
+    relocatable
+    executable
+    shared
+    kernel
+
+ENTRY
+    explicit
+    validated
+    architecture_specific
+
+ELF_RULES
+    correct_magic
+    correct_class
+    correct_endian
+    correct_machine
+    correct_entry
+    valid_segments
+    valid_sections
+    valid_symbols
+    valid_relocations
+    deterministic_layout

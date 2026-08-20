@@ -1,0 +1,53 @@
+XIO TYPE SYSTEM
+
+SCALAR
+    u8 u16 u32 u64 u128
+    i8 i16 i32 i64 i128
+    usize isize
+    f32 f64
+    bool char void
+
+COMPOSITE
+    array
+    slice
+    pointer
+    reference
+    tuple
+    struct
+    union
+    enum
+    function
+
+SPECIAL
+    never
+    infer
+    opaque
+    generic
+
+QUALIFIERS
+    const
+    volatile
+    atomic
+    mutable
+    readonly
+
+TYPE_OPERATIONS
+    resolve
+    substitute
+    unify
+    compare
+    compatible
+    layout
+    size
+    alignment
+    pointee
+    element
+    return_type
+    parameter_types
+
+TYPE_INVARIANTS
+    no unresolved type reaches backend
+    every pointer has known pointee type
+    every aggregate has deterministic layout
+    every generic is instantiated or rejected
+    every implicit conversion is explicitly permitted

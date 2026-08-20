@@ -1,0 +1,54 @@
+XIO MODULE SYSTEM
+VERSION 0.1
+
+MODULE
+    name
+    path
+    imports
+    exports
+    declarations
+    dependencies
+    metadata
+
+IMPORT
+    module
+    path
+    alias
+    symbols
+
+EXPORT
+    symbol
+    visibility
+
+VISIBILITY
+    private
+    module
+    public
+    external
+
+RESOLUTION
+    source_path
+    module_path
+    package_path
+    standard_path
+
+MODULE RULES
+    unique module identity
+    deterministic resolution
+    cyclic dependency detection
+    explicit imports
+    explicit exports
+    no accidental global symbols
+
+DEPENDENCY GRAPH
+    module
+    dependency
+    edge
+
+CHECKS
+    missing_module
+    cyclic_module
+    duplicate_module
+    invalid_import
+    private_access
+    missing_export

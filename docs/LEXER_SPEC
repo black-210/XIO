@@ -1,0 +1,320 @@
+XIO LEXER SPECIFICATION
+VERSION 0.1
+
+TOKEN IDENTIFIER
+TOKEN INTEGER
+TOKEN FLOAT
+TOKEN STRING
+TOKEN CHARACTER
+TOKEN BOOLEAN
+TOKEN KEYWORD
+TOKEN OPERATOR
+TOKEN PUNCTUATION
+TOKEN ATTRIBUTE
+TOKEN REGISTER
+TOKEN ARCHITECTURE
+TOKEN DIRECTIVE
+TOKEN COMMENT
+TOKEN NEWLINE
+TOKEN INDENT
+TOKEN DEDENT
+TOKEN EOF
+TOKEN ERROR
+
+KEYWORD module
+KEYWORD import
+KEYWORD export
+KEYWORD public
+KEYWORD private
+KEYWORD internal
+KEYWORD fn
+KEYWORD extern
+KEYWORD inline
+KEYWORD const
+KEYWORD unsafe
+KEYWORD noreturn
+KEYWORD struct
+KEYWORD union
+KEYWORD enum
+KEYWORD type
+KEYWORD trait
+KEYWORD impl
+KEYWORD global
+KEYWORD let
+KEYWORD var
+KEYWORD if
+KEYWORD else
+KEYWORD match
+KEYWORD loop
+KEYWORD while
+KEYWORD for
+KEYWORD in
+KEYWORD break
+KEYWORD continue
+KEYWORD return
+KEYWORD defer
+KEYWORD true
+KEYWORD false
+KEYWORD asm
+KEYWORD instruction
+KEYWORD register
+KEYWORD clobber
+KEYWORD compile
+KEYWORD target
+KEYWORD arch
+KEYWORD optimize
+KEYWORD debug
+KEYWORD release
+KEYWORD freestanding
+KEYWORD kernel
+KEYWORD module
+KEYWORD object
+KEYWORD elf
+KEYWORD error
+KEYWORD result
+KEYWORD option
+KEYWORD panic
+KEYWORD recover
+KEYWORD assert
+KEYWORD atomic
+KEYWORD mutex
+KEYWORD spinlock
+KEYWORD rwlock
+KEYWORD channel
+KEYWORD thread
+KEYWORD spawn
+KEYWORD join
+KEYWORD memory
+KEYWORD cpu
+KEYWORD interrupt
+KEYWORD device
+KEYWORD process
+KEYWORD scheduler
+KEYWORD filesystem
+KEYWORD network
+KEYWORD syscall
+KEYWORD capability
+KEYWORD permission
+KEYWORD page
+KEYWORD physical
+KEYWORD virtual
+KEYWORD map
+KEYWORD unmap
+KEYWORD protect
+KEYWORD alloc
+KEYWORD free
+KEYWORD move
+KEYWORD copy
+KEYWORD load
+KEYWORD store
+KEYWORD address
+KEYWORD deref
+KEYWORD offset
+KEYWORD align
+KEYWORD volatile
+KEYWORD packed
+
+TYPE u8
+TYPE u16
+TYPE u32
+TYPE u64
+TYPE u128
+TYPE i8
+TYPE i16
+TYPE i32
+TYPE i64
+TYPE i128
+TYPE usize
+TYPE isize
+TYPE f32
+TYPE f64
+TYPE bool
+TYPE char
+TYPE void
+
+ARCHITECTURE x86_64
+ARCHITECTURE aarch64
+ARCHITECTURE arm
+ARCHITECTURE riscv64
+ARCHITECTURE wasm32
+
+OPERATOR =
+OPERATOR ==
+OPERATOR !=
+OPERATOR <
+OPERATOR <=
+OPERATOR >
+OPERATOR >=
+OPERATOR +
+OPERATOR -
+OPERATOR *
+OPERATOR /
+OPERATOR %
+OPERATOR &&
+OPERATOR ||
+OPERATOR !
+OPERATOR &
+OPERATOR |
+OPERATOR ^
+OPERATOR ~
+OPERATOR <<
+OPERATOR >>
+OPERATOR +=
+OPERATOR -=
+OPERATOR *=
+OPERATOR /=
+OPERATOR %=
+OPERATOR &=
+OPERATOR |=
+OPERATOR ^=
+OPERATOR <<=
+OPERATOR >>=
+OPERATOR ->
+OPERATOR =>
+OPERATOR ::
+OPERATOR .
+
+PUNCTUATION (
+PUNCTUATION )
+PUNCTUATION {
+PUNCTUATION }
+PUNCTUATION [
+PUNCTUATION ]
+PUNCTUATION <
+PUNCTUATION >
+PUNCTUATION ,
+PUNCTUATION ;
+PUNCTUATION :
+PUNCTUATION ?
+
+INTEGER_DECIMAL
+INTEGER_HEXADECIMAL
+INTEGER_BINARY
+INTEGER_OCTAL
+
+STRING_ESCAPE
+ESCAPE_NEWLINE
+ESCAPE_TAB
+ESCAPE_RETURN
+ESCAPE_BACKSLASH
+ESCAPE_QUOTE
+ESCAPE_ZERO
+ESCAPE_HEX
+ESCAPE_UNICODE
+
+LEXER_RULE_IDENTIFIER
+    letter := A-Z | a-z | _
+    continuation := letter | digit
+    identifier := letter continuation*
+
+LEXER_RULE_DECIMAL
+    digit := 0-9
+    decimal := digit+
+
+LEXER_RULE_HEXADECIMAL
+    hexadecimal := 0x [0-9a-fA-F]+
+
+LEXER_RULE_BINARY
+    binary := 0b [01]+
+
+LEXER_RULE_OCTAL
+    octal := 0o [0-7]+
+
+LEXER_RULE_FLOAT
+    float := digit+ "." digit+ exponent?
+    exponent := ("e" | "E") ("+" | "-")? digit+
+
+LEXER_RULE_STRING
+    string := '"' string_body '"'
+    string_body := string_character*
+
+LEXER_RULE_CHARACTER
+    character := "'" character_body "'"
+
+LEXER_RULE_COMMENT_LINE
+    // consumes until newline
+
+LEXER_RULE_COMMENT_BLOCK
+    /* consumes until */
+
+LEXER_RULE_WHITESPACE
+    spaces and tabs are ignored except inside literals
+
+LEXER_RULE_NEWLINE
+    newline terminates logical statement when required
+
+LEXER_RULE_ERROR
+    unknown character produces diagnostic
+    invalid escape produces diagnostic
+    unterminated string produces diagnostic
+    unterminated character produces diagnostic
+    unterminated comment produces diagnostic
+    invalid number produces diagnostic
+
+LEXER_STATE_NORMAL
+LEXER_STATE_STRING
+LEXER_STATE_CHARACTER
+LEXER_STATE_LINE_COMMENT
+LEXER_STATE_BLOCK_COMMENT
+LEXER_STATE_ATTRIBUTE
+LEXER_STATE_DIRECTIVE
+
+LEXER_POSITION
+    file
+    byte_offset
+    line
+    column
+    length
+
+TOKEN_DATA
+    kind
+    lexeme
+    value
+    position
+
+LEXER_REQUIREMENTS
+    deterministic
+    zero_allocation_dependency
+    unicode_aware_identifier_policy
+    exact_source_position
+    recoverable_errors
+    comments_preserved_in_optional_mode
+    numeric_literal_validation
+    escape_validation
+    keyword_lookup
+    operator_longest_match
+    eof_always_emitted
+
+OPERATOR_MATCH
+    longest_operator_first
+    ">>=" before ">>"
+    "<<=" before "<<"
+    "->" before "-"
+    "=>" before "="
+    "==" before "="
+    "!=" before "!"
+    "<=" before "<"
+    ">=" before ">"
+    "&&" before "&"
+    "||" before "|"
+    "+=" before "+"
+    "-=" before "-"
+    "*=" before "*"
+    "/=" before "/"
+    "%=" before "%"
+    "&=" before "&"
+    "|=" before "|"
+    "^=" before "^"
+
+LEXER_OUTPUT
+    token_stream
+    diagnostics
+    source_positions
+
+LEXER_INVARIANTS
+    never silently discard invalid input
+    never confuse keyword and identifier
+    never accept malformed numeric literal
+    never accept malformed escape
+    never lose source location
+    never emit ambiguous operator token

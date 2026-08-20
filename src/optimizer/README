@@ -1,0 +1,35 @@
+XIO OPTIMIZER
+
+The optimizer operates only on validated IR.
+
+INITIAL PASSES
+    constant_fold
+    constant_propagation
+    dead_code_elimination
+    dead_block_elimination
+    copy_propagation
+    algebraic_simplification
+    redundant_load_elimination
+    redundant_store_elimination
+    branch_simplification
+    unreachable_elimination
+    phi_simplification
+
+ADVANCED PASSES
+    inlining
+    devirtualization
+    loop_invariant_code_motion
+    loop_unrolling
+    strength_reduction
+    common_subexpression_elimination
+    global_value_numbering
+    scalar_replacement
+    tail_call_optimization
+
+RULE
+    optimization must preserve observable behavior,
+    memory semantics,
+    atomic semantics,
+    volatile semantics,
+    ownership semantics,
+    ABI requirements.

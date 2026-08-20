@@ -1,0 +1,152 @@
+module XIO.Compiler
+
+compiler XIO
+    version 0.1
+    language XIO
+    architecture independent
+    object ELF64
+
+pipeline
+    source
+    lexer
+    parser
+    ast
+    resolve
+    semantic
+    typecheck
+    ownership
+    lifetime
+    layout
+    ir
+    ssa
+    optimize
+    lower
+    instruction_select
+    register_allocate
+    stack_layout
+    abi
+    assembly
+    object
+    elf
+    link
+
+frontend
+    lexer
+    parser
+    ast
+    diagnostics
+
+middleend
+    semantic
+    types
+    ownership
+    lifetimes
+    cfg
+    ssa
+    optimizer
+
+backend x86_64
+    registers
+    instructions
+    abi SYSV64
+    object ELF64
+    syscall
+    assembly
+
+backend aarch64
+    registers
+    instructions
+    abi AAPCS64
+    object ELF64
+    syscall
+    assembly
+
+codegen
+    lower IR
+    select instructions
+    allocate registers
+    construct stack
+    lower ABI
+    emit assembly
+
+assembler
+    parse assembly
+    validate instructions
+    encode instructions
+    resolve labels
+    emit relocations
+    emit object
+
+elf
+    create header
+    create sections
+    create symbols
+    create relocations
+    create segments
+    set entry
+    emit ELF64
+
+linker
+    load objects
+    resolve symbols
+    apply relocations
+    merge sections
+    layout segments
+    validate architecture
+    validate ABI
+    emit executable
+
+target
+    host
+    target
+    cross_compile
+
+rules
+    no_runtime
+    freestanding
+    deterministic
+    architecture_aware
+    explicit_memory
+    explicit_abi
+    explicit_linking
+    no_foreign_frontend
+    no_foreign_middleend
+    no_foreign_backend
+
+bootstrap
+    temporary_host_compiler
+
+self_host
+    lexer XIO
+    parser XIO
+    semantic XIO
+    ir XIO
+    optimizer XIO
+    backend XIO
+    assembler XIO
+    elf XIO
+    linker XIO
+
+compile
+    input source
+    output object
+
+link
+    input objects
+    output executable
+
+kernel
+    freestanding
+    entry _start
+    no_libc
+    no_host_runtime
+
+validate
+    frontend
+    IR
+    target
+    object
+    ELF
+
+status
+    compiler architecture complete

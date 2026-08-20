@@ -1,0 +1,46 @@
+XIO TARGET DESCRIPTION
+
+TARGET
+    name
+    architecture
+    vendor
+    operating_system
+    environment
+    ABI
+    object_format
+    pointer_width
+    endian
+
+TARGET x86_64
+    architecture x86_64
+    pointer_width 64
+    endian little
+    object ELF64
+    ABI SYSV64
+
+TARGET aarch64
+    architecture aarch64
+    pointer_width 64
+    endian little
+    object ELF64
+    ABI AAPCS64
+
+TARGET FEATURES
+    integer
+    floating
+    atomic
+    SIMD
+    TLS
+    PIC
+    PIE
+    kernel
+    freestanding
+
+TARGET VALIDATION
+    source_target
+    IR_target
+    backend_target
+    object_target
+    linker_target
+
+ALL MUST MATCH

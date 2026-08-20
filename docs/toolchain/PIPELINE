@@ -1,0 +1,49 @@
+XIO TOOLCHAIN
+
+XIO SOURCE
+    |
+    v
+LEXER
+    |
+    v
+PARSER
+    |
+    v
+AST
+    |
+    v
+SEMANTIC
+    |
+    v
+IR
+    |
+    v
+OPTIMIZER
+    |
+    v
+CODEGEN
+    |
+    v
+ASSEMBLER
+    |
+    v
+OBJECT
+    |
+    v
+LINKER
+    |
+    v
+ELF
+
+TARGETS
+    x86_64
+    aarch64
+
+FORMATS
+    ELF64
+
+BOOTSTRAP
+    temporary
+
+FINAL
+    self-hosted XIO toolchain

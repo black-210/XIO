@@ -1,0 +1,51 @@
+XIO BOOTSTRAP PLAN
+
+PHASE 0
+    temporary host compiler
+
+PHASE 1
+    lexer in XIO
+
+PHASE 2
+    parser in XIO
+
+PHASE 3
+    AST in XIO
+
+PHASE 4
+    semantic analyzer in XIO
+
+PHASE 5
+    IR generator in XIO
+
+PHASE 6
+    optimizer in XIO
+
+PHASE 7
+    x86_64 backend in XIO
+
+PHASE 8
+    aarch64 backend in XIO
+
+PHASE 9
+    object emitter in XIO
+
+PHASE 10
+    ELF linker in XIO
+
+PHASE 11
+    self compile
+
+PHASE 12
+    rebuild compiler using itself
+
+PHASE 13
+    compare bootstrap output
+
+PHASE 14
+    remove bootstrap compiler
+
+FINAL
+    XIO -> XIO compiler
+    XIO compiler -> XIO compiler
+    no foreign implementation dependency

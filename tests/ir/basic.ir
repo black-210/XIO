@@ -1,0 +1,7 @@
+module test
+
+function exit() -> void
+entry:
+    %status = const i64 0
+    syscall 60, %status
+    return

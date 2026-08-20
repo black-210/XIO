@@ -1,0 +1,27 @@
+XIO ABI CONTRACT
+
+Every target backend defines:
+
+    integer argument registers
+    floating argument registers
+    return registers
+    caller saved registers
+    callee saved registers
+    stack alignment
+    stack growth
+    frame layout
+    aggregate passing
+    aggregate return
+    variadic handling
+    syscall convention
+    interrupt convention
+    kernel convention
+
+Backend must reject:
+    unknown target
+    unsupported ABI
+    invalid register
+    invalid alignment
+    invalid instruction
+    impossible register allocation
+    invalid relocation

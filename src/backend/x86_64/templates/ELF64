@@ -1,0 +1,19 @@
+ELF64 X86_64
+
+HEADER
+    magic 7f ELF
+    class 64
+    endian little
+    version current
+    machine EM_X86_64
+    type ET_EXEC
+    entry _start
+
+SECTIONS
+    .text executable
+    .rodata readable
+    .data readable writable
+    .bss readable writable
+
+ENTRY
+    _start

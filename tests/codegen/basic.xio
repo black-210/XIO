@@ -1,0 +1,7 @@
+module test
+
+function exit() -> void
+{
+    syscall(60, 0);
+    return;
+}

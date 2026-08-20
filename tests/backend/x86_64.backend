@@ -1,0 +1,12 @@
+target x86_64
+
+function exit
+    syscall 60
+    argument 0
+    return
+
+expect register rax
+expect register rdi
+expect instruction syscall
+expect object ELF64
+expect architecture x86_64

@@ -1,0 +1,12 @@
+target aarch64
+
+function exit
+    syscall 93
+    argument 0
+    return
+
+expect register x8
+expect register x0
+expect instruction svc
+expect object ELF64
+expect architecture aarch64

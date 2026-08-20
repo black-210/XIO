@@ -1,0 +1,540 @@
+XIO INTERMEDIATE REPRESENTATION
+VERSION 0.1
+
+IR DESIGN
+    typed
+    SSA-capable
+    target-independent
+    deterministic
+    explicit-memory
+    explicit-control-flow
+    explicit-calling-convention
+    explicit-ownership
+    explicit-effects
+
+PIPELINE
+    validated_AST
+    -> lowering
+    -> typed_IR
+    -> CFG
+    -> SSA
+    -> optimization
+    -> target_lowering
+    -> machine_IR
+
+MODULE
+    id
+    name
+    target
+    data_layout
+    calling_convention
+    globals
+    types
+    functions
+    declarations
+    metadata
+
+FUNCTION
+    id
+    name
+    signature
+    linkage
+    visibility
+    attributes
+    parameters
+    locals
+    blocks
+    entry
+    exit
+
+PARAMETER
+    id
+    type
+    value
+
+LOCAL
+    id
+    type
+    storage
+    lifetime
+    alignment
+
+BASIC_BLOCK
+    id
+    label
+    instructions
+    terminator
+    predecessors
+    successors
+
+VALUE
+    id
+    type
+    definition
+    uses
+
+CONSTANT
+    integer
+    floating
+    boolean
+    null
+    undefined
+    aggregate
+    string
+    address
+
+TYPE
+    void
+    integer
+    float
+    pointer
+    array
+    vector
+    struct
+    union
+    function
+    opaque
+
+============================================================
+MEMORY OPERATIONS
+============================================================
+
+ALLOC
+    result
+    type
+    count
+    alignment
+
+STACK_ALLOC
+    result
+    type
+    count
+    alignment
+
+LOAD
+    result
+    address
+    type
+    alignment
+    volatile
+    atomic_order
+
+STORE
+    address
+    value
+    alignment
+    volatile
+    atomic_order
+
+MEMCPY
+    destination
+    source
+    size
+    alignment
+
+MEMMOVE
+    destination
+    source
+    size
+    alignment
+
+MEMSET
+    destination
+    value
+    size
+    alignment
+
+ADDRESS_OF
+    result
+    value
+
+PTR_ADD
+    result
+    pointer
+    offset
+
+PTR_SUB
+    result
+    pointer
+    offset
+
+PTR_CAST
+    result
+    pointer
+    target_type
+
+BITCAST
+    result
+    value
+    target_type
+
+============================================================
+ARITHMETIC
+============================================================
+
+ADD
+SUB
+MUL
+UDIV
+SDIV
+UREM
+SREM
+
+NEG
+ABS
+
+AND
+OR
+XOR
+NOT
+
+SHL
+LSHR
+ASHR
+
+UMIN
+UMAX
+SMIN
+SMAX
+
+============================================================
+COMPARISON
+============================================================
+
+ICMP_EQ
+ICMP_NE
+ICMP_ULT
+ICMP_ULE
+ICMP_UGT
+ICMP_UGE
+ICMP_SLT
+ICMP_SLE
+ICMP_SGT
+ICMP_SGE
+
+FCMP_EQ
+FCMP_NE
+FCMP_LT
+FCMP_LE
+FCMP_GT
+FCMP_GE
+
+============================================================
+CONVERSION
+============================================================
+
+ZEXT
+SEXT
+TRUNC
+UITOF
+SITO F
+FTOUI
+FTOSI
+FEXT
+FTRUNC
+INT_TO_PTR
+PTR_TO_INT
+BOOL_TO_INT
+INT_TO_BOOL
+
+============================================================
+CONTROL FLOW
+============================================================
+
+BRANCH
+    target
+
+COND_BRANCH
+    condition
+    true_target
+    false_target
+
+SWITCH
+    value
+    default
+    cases
+
+RETURN
+    value?
+
+UNREACHABLE
+
+TRAP
+    code
+
+CALL
+    callee
+    arguments
+    return_value
+    calling_convention
+    attributes
+
+TAIL_CALL
+    callee
+    arguments
+
+INVOKE
+    callee
+    arguments
+    normal_target
+    exception_target
+
+============================================================
+SSA
+============================================================
+
+SSA_VALUE
+    unique_definition
+
+PHI
+    result
+    incoming_pairs
+
+SSA_RULES
+    every value has one definition
+    every use dominates its use site
+    phi exists at merge points
+    unreachable blocks are removable
+    backend receives valid SSA or lowered equivalent
+
+============================================================
+ATOMIC
+============================================================
+
+ATOMIC_LOAD
+ATOMIC_STORE
+ATOMIC_RMW
+ATOMIC_CMPXCHG
+FENCE
+
+ATOMIC_ORDER
+    relaxed
+    acquire
+    release
+    acq_rel
+    seq_cst
+
+============================================================
+SYSTEM OPERATIONS
+============================================================
+
+SYSCALL
+    number
+    arguments
+    result
+
+INTRINSIC
+    name
+    arguments
+    result
+
+ASM
+    template
+    inputs
+    outputs
+    clobbers
+    constraints
+
+INTERRUPT_RETURN
+
+HALT
+
+WAIT
+
+CPU_PAUSE
+
+BARRIER
+
+============================================================
+GLOBAL DATA
+============================================================
+
+GLOBAL
+    name
+    type
+    initializer
+    alignment
+    linkage
+    visibility
+    section
+    mutable
+    thread_local
+
+STRING_CONSTANT
+ARRAY_CONSTANT
+STRUCT_CONSTANT
+ZERO_INITIALIZER
+
+============================================================
+FUNCTION ATTRIBUTES
+============================================================
+
+NO_RETURN
+NO_INLINE
+ALWAYS_INLINE
+COLD
+HOT
+PURE
+CONST
+NOUNWIND
+NAIL
+KERNEL
+INTERRUPT
+SYSCALL
+DRIVER
+FREESTANDING
+
+============================================================
+LINKAGE
+============================================================
+
+PRIVATE
+INTERNAL
+EXTERNAL
+WEAK
+LINK_ONCE
+AVAILABLE_EXTERNALLY
+
+============================================================
+EFFECT SYSTEM
+============================================================
+
+EFFECT_NONE
+EFFECT_READ_MEMORY
+EFFECT_WRITE_MEMORY
+EFFECT_ALLOCATE
+EFFECT_FREE
+EFFECT_IO
+EFFECT_SYSCALL
+EFFECT_ATOMIC
+EFFECT_ASM
+EFFECT_INTERRUPT
+EFFECT_TRAP
+
+EVERY_FUNCTION
+    declares_or_infers effects
+
+============================================================
+OWNERSHIP METADATA
+============================================================
+
+OWN
+MOVE
+COPY
+BORROW
+MUT_BORROW
+RELEASE
+ESCAPE
+
+OWNERSHIP_CHECKS
+    no_use_after_move
+    no_double_release
+    no_invalid_escape
+    no_invalid_mutable_alias
+
+============================================================
+DEBUG METADATA
+============================================================
+
+SOURCE_FILE
+SOURCE_LINE
+SOURCE_COLUMN
+SOURCE_SCOPE
+SOURCE_VARIABLE
+INLINE_LOCATION
+
+============================================================
+TARGET LOWERING
+============================================================
+
+TARGET_INDEPENDENT
+    arithmetic
+    comparison
+    memory
+    control_flow
+    calls
+
+TARGET_DEPENDENT
+    registers
+    calling_convention
+    stack_frame
+    instruction_selection
+    ABI
+    object_format
+    relocation
+    atomic_instruction
+    system_instruction
+
+============================================================
+IR VALIDATION
+============================================================
+
+CHECK_TYPES
+CHECK_BLOCKS
+CHECK_TERMINATORS
+CHECK_DOMINANCE
+CHECK_PHI
+CHECK_MEMORY
+CHECK_ALIGNMENT
+CHECK_CALLS
+CHECK_ATTRIBUTES
+CHECK_EFFECTS
+CHECK_OWNERSHIP
+CHECK_TARGET
+
+INVALID_IR
+    must produce compiler diagnostic
+    must never reach assembler
+    must never reach linker
+
+============================================================
+SERIALIZATION
+============================================================
+
+IR_TEXT
+IR_BINARY
+
+IR_TEXT
+    deterministic
+    human_readable
+    stable ordering
+
+IR_BINARY
+    versioned
+    endian-defined
+    type-tagged
+    length-prefixed
+
+============================================================
+LOWERING CONTRACT
+============================================================
+
+AST_TO_IR
+    declarations
+    functions
+    expressions
+    statements
+    memory
+    control_flow
+    calls
+    constants
+
+SEMANTIC_INFORMATION
+    types
+    ownership
+    lifetimes
+    effects
+    layouts
+
+MUST_SURVIVE_LOWERING
+    source_location
+    ABI_information
+    alignment
+    volatility
+    atomicity
+    calling_convention
+    ownership metadata
+
+============================================================
+IR END
+============================================================

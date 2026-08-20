@@ -1,0 +1,37 @@
+XIO IR -> AARCH64
+
+ADD       -> add
+SUB       -> sub
+MUL       -> mul
+SDIV      -> sdiv
+UDIV      -> udiv
+AND       -> and
+OR        -> orr
+XOR       -> eor
+SHL       -> lsl
+LSHR      -> lsr
+ASHR      -> asr
+
+LOAD      -> ldr
+STORE     -> str
+ADDRESS_OF -> add/adr/adrp
+
+BRANCH    -> b
+COND_BRANCH -> cmp + conditional branch
+CALL      -> bl
+RETURN    -> ret
+
+SYSCALL   -> svc
+TRAP      -> brk
+HALT      -> wfi
+
+PTR_ADD   -> add
+PTR_CAST  -> mov
+BITCAST   -> mov
+
+ICMP_EQ   -> cmp + cset eq
+ICMP_NE   -> cmp + cset ne
+ICMP_SLT  -> cmp + cset lt
+ICMP_SLE  -> cmp + cset le
+ICMP_SGT  -> cmp + cset gt
+ICMP_SGE  -> cmp + cset ge

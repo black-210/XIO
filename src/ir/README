@@ -1,0 +1,7 @@
+XIO IR
+
+AST -> typed IR -> SSA -> optimized IR -> target IR.
+
+IR is the boundary between language semantics and machine-specific code generation.
+
+The backend must never need to understand XIO source syntax.

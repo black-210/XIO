@@ -1,0 +1,17 @@
+XIO SEMANTIC ENGINE
+
+AST
+  -> symbols
+  -> types
+  -> generics
+  -> traits
+  -> ownership
+  -> lifetimes
+  -> mutability
+  -> constants
+  -> control flow
+  -> memory safety
+  -> target layout
+  -> validated program
+
+No backend code generation occurs here.
