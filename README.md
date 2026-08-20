@@ -347,7 +347,7 @@ The bootstrap implementation is a temporary construction stage, not the final ar
 🚧 Project Status
 
 XIO is actively under development.
-
+"However, it is valid for use but is under development. You can use it. "
 This repository should currently be considered experimental.
 
 Some components are specifications, architecture definitions, prototypes, tests, and early implementations rather than a finished production compiler.
