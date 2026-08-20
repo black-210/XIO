@@ -1,8 +1,5 @@
 # XIO
 
-
-# XIO
-
 ### The Systems Language Built to Turn Impossibility Into Software.
 
 > **Describe the system. Build the system. Own the stack.**
