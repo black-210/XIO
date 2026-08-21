@@ -1,249 +1,462 @@
-XIO PROPRIETARY LICENSE
+XIO PROPRIETARY COMMUNITY LICENSE
 Version 1.0
 
 Copyright (c) 2026 Ibrahim Mohammed
 All Rights Reserved.
 
-XIO and all associated software, source code, compiler,
-toolchain, specifications, documentation, libraries,
-modules, backends, build systems, and related materials
-(collectively, the "Software") are proprietary works owned
-and controlled by Ibrahim Mohammed ("Copyright Holder"),
-unless a separate written agreement states otherwise.
-
 ============================================================
-1. GRANT OF USE
+1. DEFINITIONS
 ============================================================
 
-The Copyright Holder grants you a limited, non-exclusive,
-non-transferable, revocable license to:
+For the purposes of this License:
 
-    1. Use the Software.
-    2. Run the Software.
-    3. Study the publicly available documentation.
-    4. Create and compile programs using the XIO language.
-    5. Use programs written in XIO for personal or commercial
-       purposes, subject to this License.
-    6. Distribute your own programs created using XIO,
-       provided that such distribution does not include
-       unauthorized copies or modifications of the Software.
+"XIO" means the XIO programming language, its specifications,
+official documentation, official implementations, official
+repositories, official tools, official compiler, official
+toolchain, official infrastructure, and associated materials.
 
-This license does not transfer ownership of XIO or the
-Software to the user.
+"Software" means the specific XIO software or source code
+distributed with this License.
+
+"Copyright Holder" means Ibrahim Mohammed.
+
+"Official XIO" means software, repositories, releases,
+documentation, tools, or other materials officially published
+or authorized by the Copyright Holder.
+
+"User Program" means software independently created by a user
+using the XIO language, provided that the User Program does not
+contain unauthorized copies or modified portions of proprietary
+XIO Software.
+
+"Contributor" means an individual or organization that submits
+code, documentation, specifications, fixes, designs, or other
+material to an Official XIO project.
 
 ============================================================
 2. OWNERSHIP
 ============================================================
 
-All rights, title, and interest in and to the Software,
-including copyright and other intellectual property rights,
-remain exclusively with:
+XIO and all Official XIO materials remain the exclusive
+property of Ibrahim Mohammed unless a separate written
+agreement states otherwise.
 
-    Ibrahim Mohammed
+All copyright, trademark, design, specification, implementation,
+and other intellectual property rights in Official XIO remain
+owned or controlled by the Copyright Holder.
 
-The XIO name, XIO branding, compiler, language
-implementation, architecture, source code, and official
-toolchain remain proprietary.
-
-No provision of this License constitutes a transfer of
-ownership.
+Nothing in this License transfers ownership of XIO to any user,
+contributor, organization, repository, fork, or third party.
 
 ============================================================
-3. MODIFICATION
+3. USE OF THE XIO LANGUAGE
 ============================================================
 
-You may NOT modify, alter, patch, adapt, translate,
-reverse-engineer for the purpose of creating a competing
-implementation, or create derivative versions of the
-Software without prior written permission from the
-Copyright Holder.
+Permission is granted to use the XIO language.
 
-This includes, but is not limited to:
+Users may:
 
-    compiler
-    lexer
-    parser
-    AST
-    semantic analyzer
-    type system
-    IR
-    optimizer
-    backend
-    assembler
-    linker
-    runtime
-    SDK
-    standard library
-    build system
-    official specifications
-    official tools
+    1. Learn XIO.
+    2. Write programs using XIO.
+    3. Compile programs using an authorized XIO compiler.
+    4. Use XIO programs for personal purposes.
+    5. Use XIO programs for commercial purposes.
+    6. Distribute independently created XIO programs.
+    7. Modify their own XIO programs.
+    8. Publish source code of their own XIO programs.
 
-Any modification requires explicit written authorization.
+This permission does not transfer ownership of XIO itself.
 
 ============================================================
-4. FORKING
+4. USER PROGRAM OWNERSHIP
 ============================================================
 
-Creating or maintaining a fork, derivative repository,
-modified distribution, or substantially modified version
-of the Software is prohibited without prior written
-permission from the Copyright Holder.
+Programs independently created using XIO remain the property of
+their respective authors.
+
+The Copyright Holder does not claim ownership of independently
+created User Programs merely because they are written in XIO.
+
+Users are responsible for ensuring that their programs do not
+contain unauthorized copies of the XIO implementation or other
+proprietary materials.
 
 ============================================================
-5. DEVELOPMENT AND CONTRIBUTIONS
+5. OFFICIAL XIO COMPILER
 ============================================================
 
-No person or organization receives the right to develop,
-modify, extend, or maintain the official XIO implementation
-without authorization.
+The official XIO compiler remains proprietary software owned or
+controlled by Ibrahim Mohammed.
 
-The Copyright Holder may independently authorize specific
-individuals or organizations to contribute to XIO.
+Unless a separate license explicitly permits otherwise, users
+may not:
 
-Such authorization must be explicit and may be limited in
-scope, duration, or purpose.
+    1. Redistribute the official compiler.
+    2. Sell copies of the official compiler.
+    3. Create unauthorized modified versions.
+    4. Create unauthorized derivative versions.
+    5. Create a competing implementation using proprietary
+       implementation details or source code.
+    6. Present an unauthorized compiler as the official XIO
+       compiler.
 
-A contribution does not automatically transfer ownership
-to the contributor unless a separate written agreement
+The Copyright Holder may publish selected portions of the
+compiler under additional licenses at any time.
+
+============================================================
+6. OPEN AND PROPRIETARY COMPONENTS
+============================================================
+
+XIO may contain both open and proprietary components.
+
+Individual components may have separate licenses.
+
+Where a component is explicitly released under an open-source
+license, that component is governed by its stated license.
+
+Where no separate open-source license is provided, the component
+remains proprietary and is governed by this License.
+
+The existence of publicly available source code does not by
+itself grant permission to modify, redistribute, fork, or
+commercially distribute that source code.
+
+Public availability and open-source licensing are not
+automatically equivalent.
+
+============================================================
+7. LANGUAGE SPECIFICATION
+============================================================
+
+The Copyright Holder may publish XIO language specifications,
+documentation, grammar definitions, examples, and educational
+materials publicly.
+
+Public documentation may be studied and referenced for the
+purpose of learning and using XIO.
+
+Unless explicitly licensed otherwise, publication of a
+specification does not grant ownership of XIO or permission to
+create an official derivative implementation.
+
+The Copyright Holder may change the language specification,
+syntax, semantics, standard library, compiler behavior, or
+toolchain at any time during development.
+
+============================================================
+8. CONTRIBUTIONS
+============================================================
+
+Contributions to Official XIO projects are permitted subject to
+the contribution rules established by the Copyright Holder.
+
+Contributors may submit:
+
+    Source code
+    Documentation
+    Bug fixes
+    Tests
+    Specifications
+    Examples
+    Optimizations
+    Tools
+    Designs
+
+Submitting a contribution does not automatically grant the
+contributor ownership of XIO.
+
+============================================================
+9. CONTRIBUTION LICENSE
+============================================================
+
+By submitting a contribution to an Official XIO project, the
+Contributor grants the Copyright Holder a perpetual,
+worldwide, non-exclusive, royalty-free license to:
+
+    1. Use the contribution.
+    2. Reproduce the contribution.
+    3. Modify the contribution.
+    4. Distribute the contribution.
+    5. Publish the contribution.
+    6. Sublicense the contribution where necessary for XIO.
+    7. Include the contribution in proprietary or open
+       components of XIO, subject to applicable law.
+
+The Copyright Holder may incorporate, modify, reject, remove,
+relicense, or redistribute contributions as part of Official XIO.
+
+A Contributor retains ownership of independently created
+intellectual property unless a separate written agreement
 states otherwise.
 
-============================================================
-6. REDISTRIBUTION
-============================================================
-
-You may not redistribute the Software, modified or
-unmodified, except where the Copyright Holder has expressly
-authorized such redistribution.
-
-You may distribute applications and other works created
-using XIO, provided that the distribution does not contain
-the Software itself or an unauthorized modified version of
-the Software.
+This section does not transfer ownership of the Contributor's
+unrelated projects or intellectual property.
 
 ============================================================
-7. COMPETING IMPLEMENTATIONS
+10. CONTRIBUTOR ATTRIBUTION
 ============================================================
 
-You may not use the Software, its source code, proprietary
-implementation details, or confidential materials to create
-or maintain a competing implementation of XIO without prior
-written permission from the Copyright Holder.
+The Copyright Holder may provide attribution to contributors
+through:
 
-This restriction does not claim ownership over independently
-created ideas, concepts, algorithms, or general programming
-knowledge that are not protected proprietary materials of
-the Copyright Holder.
+    Contributor lists
+    Git history
+    Release notes
+    Documentation
+    Repository history
+
+Attribution does not grant ownership or control over XIO.
 
 ============================================================
-8. REVERSE ENGINEERING
+11. FORKING
 ============================================================
 
-To the extent permitted by applicable law, you may not
-reverse engineer, decompile, disassemble, or otherwise
-attempt to derive the source code or internal implementation
-of the Software for the purpose of creating a competing
-implementation or unauthorized derivative work.
+Users may fork repositories for personal evaluation, archival,
+educational, or development purposes only where such activity
+does not violate the license applicable to the relevant
+repository or component.
+
+A public modified fork of proprietary Official XIO Software,
+or redistribution of such a fork, requires prior written
+permission from the Copyright Holder unless another applicable
+license expressly permits it.
+
+Forks must not falsely claim to be Official XIO.
+
+============================================================
+12. MODIFICATION OF PROPRIETARY SOFTWARE
+============================================================
+
+Unless expressly permitted by an applicable license, users may
+not modify proprietary XIO Software for redistribution.
+
+This includes:
+
+    Compiler
+    Backend
+    Toolchain
+    Runtime
+    Official libraries
+    Official build infrastructure
+    Official development tools
+    Proprietary modules
+    Proprietary services
+    Proprietary implementation components
+
+Authorized contributors may modify such components within the
+scope of their contribution rights.
+
+============================================================
+13. COMPETING IMPLEMENTATIONS
+============================================================
+
+Nothing in this License prohibits independent programming
+knowledge, independent research, or independently developed
+software that does not use unauthorized proprietary XIO source
+code, confidential information, or protected materials.
+
+However, users may not use proprietary XIO source code or
+confidential implementation information to create an
+unauthorized competing implementation of Official XIO.
 
 Nothing in this section is intended to restrict rights that
 cannot legally be restricted under applicable law.
 
 ============================================================
-9. SECURITY RESEARCH
+14. XIO TRADEMARK
 ============================================================
 
-Good-faith security research conducted within applicable
-law is not prohibited solely by this License.
+The name:
 
-Security researchers must not use the Software to cause
-unauthorized damage, compromise systems, steal information,
-or interfere with services.
+    XIO
 
-Disclosure of vulnerabilities should be performed
-responsibly.
+and associated logos, names, marks, branding, and official
+identifiers are controlled by Ibrahim Mohammed.
 
-============================================================
-10. TRADEMARKS
-============================================================
+This License does not grant trademark rights.
 
-"XIO", associated logos, names, branding, and official
-identifiers are not granted under this License unless
-explicitly stated otherwise.
+Users may refer to XIO for compatibility, education,
+documentation, discussion, and legitimate use of the language,
+provided that such use does not falsely imply official
+endorsement.
 
-Use of XIO trademarks in a manner suggesting official
-endorsement, ownership, partnership, or authorization is
-prohibited without written permission.
+An unauthorized project may not represent itself as:
 
-============================================================
-11. NO WARRANTY
-============================================================
+    Official XIO
+    XIO Official Compiler
+    XIO Official Toolchain
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
-KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO
-WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE, TITLE, OR NON-INFRINGEMENT, TO THE MAXIMUM EXTENT
-PERMITTED BY APPLICABLE LAW.
+or another designation suggesting official authorization.
 
 ============================================================
-12. LIMITATION OF LIABILITY
+15. COMMUNITY PROJECTS
+============================================================
+
+Community projects related to XIO are permitted.
+
+Community projects must not falsely represent themselves as
+Official XIO.
+
+The Copyright Holder may recognize, link to, collaborate with,
+or officially authorize community projects.
+
+Official authorization may be revoked where permitted by law
+and by the applicable agreement.
+
+============================================================
+16. REDISTRIBUTION
+============================================================
+
+User Programs may be distributed freely, including for
+commercial purposes, provided that they do not contain
+unauthorized proprietary XIO Software.
+
+Proprietary XIO Software may not be redistributed except under
+an applicable license or written permission from the Copyright
+Holder.
+
+Separate open-source components may be redistributed according
+to their respective licenses.
+
+============================================================
+17. COMMERCIAL USE
+============================================================
+
+Commercial use of independently created User Programs is
+permitted.
+
+Commercial use does not grant ownership of XIO.
+
+Commercial redistribution of proprietary XIO Software requires
+authorization unless expressly permitted by another applicable
+license.
+
+The Copyright Holder may provide separate commercial licenses
+for proprietary XIO components.
+
+============================================================
+18. SECURITY RESEARCH
+============================================================
+
+Good-faith security research is permitted within applicable
+law.
+
+Security researchers must not:
+
+    1. Cause unauthorized damage.
+    2. Access systems without authorization.
+    3. Steal information.
+    4. Disrupt services.
+    5. Deploy malicious code.
+
+Security vulnerabilities should be reported responsibly where
+reasonably possible.
+
+Nothing in this section overrides rights that cannot legally
+be restricted.
+
+============================================================
+19. REVERSE ENGINEERING
+============================================================
+
+Reverse engineering, decompilation, or disassembly of
+proprietary XIO Software is restricted to the maximum extent
+permitted by applicable law.
+
+Nothing in this License is intended to prohibit activities that
+applicable law expressly permits despite contractual
+restrictions.
+
+============================================================
+20. NO IMPLIED RIGHTS
+============================================================
+
+No rights are granted by implication, estoppel, exhaustion, or
+otherwise except those expressly granted by this License,
+another applicable license, or applicable law.
+
+============================================================
+21. SEPARATE LICENSES
+============================================================
+
+The Copyright Holder may release specific XIO components under
+separate licenses.
+
+Where a separate license explicitly applies to a component,
+that license controls the relevant component.
+
+This License continues to govern all other proprietary
+components unless explicitly replaced.
+
+============================================================
+22. LICENSE CHANGES
+============================================================
+
+The Copyright Holder may publish future versions of this
+License.
+
+Existing versions remain applicable to materials distributed
+under those versions unless the applicable license explicitly
+provides otherwise.
+
+A new release may use a newer license version.
+
+============================================================
+23. TERMINATION
+============================================================
+
+This License terminates automatically for a user who materially
+violates its terms.
+
+Upon termination, the affected user must stop unauthorized use,
+modification, and distribution of proprietary XIO Software.
+
+Rights that cannot legally be terminated remain unaffected.
+
+Independently created User Programs remain governed by the
+rights granted to them under this License and applicable law,
+except where those rights themselves were obtained through a
+material violation.
+
+============================================================
+24. NO WARRANTY
+============================================================
+
+THE SOFTWARE AND XIO MATERIALS ARE PROVIDED "AS IS", WITHOUT
+WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT, TO THE
+MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW.
+
+============================================================
+25. LIMITATION OF LIABILITY
 ============================================================
 
 TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE
 COPYRIGHT HOLDER SHALL NOT BE LIABLE FOR ANY INDIRECT,
-INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR EXEMPLARY DAMAGES
-ARISING FROM THE USE OR INABILITY TO USE THE SOFTWARE.
+INCIDENTAL, SPECIAL, CONSEQUENTIAL, EXEMPLARY, OR OTHER
+DAMAGES ARISING FROM OR RELATED TO THE USE OR INABILITY TO
+USE XIO OR THE SOFTWARE.
 
 ============================================================
-13. TERMINATION
+26. SEVERABILITY
 ============================================================
 
-This License terminates automatically if you materially
-violate its terms.
-
-Upon termination, you must cease all unauthorized use,
-modification, and distribution of the Software.
-
-Rights concerning independently created applications that
-do not contain the Software are not automatically transferred
-or revoked solely because this License terminates.
-
-============================================================
-14. PERMISSION EXCEPTIONS
-============================================================
-
-The Copyright Holder may grant additional permissions,
-exceptions, development rights, redistribution rights,
-commercial licenses, or modification rights through a
-separate written agreement.
-
-Such permission applies only to the scope explicitly stated
-in that agreement.
-
-============================================================
-15. NO IMPLIED RIGHTS
-============================================================
-
-No rights are granted by implication, estoppel, exhaustion,
-or otherwise except those expressly granted by this License
-or by applicable law.
-
-============================================================
-16. SEVERABILITY
-============================================================
-
-If any provision of this License is found to be invalid or
-unenforceable, the remaining provisions shall remain in
+If any provision of this License is determined to be invalid
+or unenforceable, the remaining provisions shall remain in
 effect to the maximum extent permitted by law.
 
 ============================================================
-17. ENTIRE LICENSE
+27. ENTIRE LICENSE
 ============================================================
 
 This License constitutes the complete license governing the
-use of the Software unless a separate written agreement
-supersedes or supplements it.
+rights granted for the applicable XIO materials unless a
+separate written agreement or applicable component license
+states otherwise.
 
 ============================================================
-18. COPYRIGHT NOTICE
+28. COPYRIGHT NOTICE
 ============================================================
 
 Copyright (c) 2026 Ibrahim Mohammed
@@ -251,7 +464,15 @@ All Rights Reserved.
 
 XIO is proprietary software.
 
-Use is permitted only under the terms of this License.
+The XIO language may be used to create personal and commercial
+software.
+
+The official XIO implementation, official compiler, official
+toolchain, XIO name, trademarks, and proprietary components
+remain owned or controlled by Ibrahim Mohammed.
+
+Contributions are welcome under the contribution terms of this
+License.
 
 ============================================================
 END OF LICENSE
